@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-eeg-communication"
+version = "1.0.0"
+description = "Reproducible task-oriented semantic transmission experiments for remote motor-imagery EEG classification."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = {text = "MIT"}
+authors = [
+  {name = "Hossein Ahmadi", email = "hossein.ahmadi@polito.it"},
+  {name = "Luca Mesin"}
+]
+keywords = ["EEG", "BCI", "motor imagery", "semantic communication", "FBCSP", "AWGN"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+dependencies = [
+  "joblib==1.4.2",
+  "matplotlib==3.10.5",
+  "mne==1.12.1",
+  "moabb==1.5.0",
+  "numpy==2.0.2",
+  "pandas==2.2.2",
+  "PyYAML==6.0.2",
+  "reportlab==4.4.3",
+  "scikit-learn==1.6.1",
+  "scipy==1.16.3",
+  "torch==2.11.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<9", "ruff>=0.9,<1"]
+
+[project.urls]
+Repository = "https://github.com/HosseinAhmadi63/Semantic-EEG-Communication"
+
+[project.scripts]
+semantic-eeg = "semantic_eeg.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+semantic_eeg = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

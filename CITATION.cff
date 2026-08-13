@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated paper and this repository."
+title: "Semantic EEG Communication"
+type: software
+version: 1.0.0
+date-released: 2026-08-13
+authors:
+  - family-names: Ahmadi
+    given-names: Hossein
+    orcid: "https://orcid.org/0000-0002-9039-7227"
+  - family-names: Mesin
+    given-names: Luca
+    orcid: "https://orcid.org/0000-0003-2030-9998"
+repository-code: "https://github.com/HosseinAhmadi63/Semantic-EEG-Communication"
+license: MIT

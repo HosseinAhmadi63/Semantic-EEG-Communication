@@ -1,0 +1,88 @@
+project:
+  name: semantic-eeg-communication
+  output_directory: results/runs
+  data_directory: data/mne_data
+  resume: true
+  fail_fast: false
+
+dataset:
+  name: BNCI2014_001
+  subjects: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  classes: [left_hand, right_hand, feet, tongue]
+  sampling_frequency: 160.0
+  epoch_start: 0.5
+  epoch_stop: 4.0
+  epoch_samples: 560
+  eeg_channels: 22
+  artifact_policy: source_trial_flags
+  validation_split_seed: 2026
+
+communication:
+  budgets: [16, 32, 64]
+  training_snr_db: [-10.0, -5.0, 0.0, 5.0, 10.0, 15.0, 20.0]
+  evaluation_snr_db: [-10.0, -5.0, 0.0, 5.0, 10.0, 15.0, 20.0, null]
+  evaluation_snr_labels: [-10_dB, -5_dB, 0_dB, 5_dB, 10_dB, 15_dB, 20_dB, noise_free]
+  channel_realizations: 20
+  channel_seed_base: 500000000
+  validation_channel_seed_base: 700000000
+
+training:
+  seeds: [2026, 2027, 2028]
+  batch_size: 32
+  evaluation_batch_size: 256
+  weight_decay: 0.0001
+  scheduler_factor: 0.5
+  scheduler_patience: 10
+  minimum_learning_rate: 0.00001
+  minimum_improvement: 0.0001
+
+conventional:
+  frequency_bands:
+    - [8.0, 12.0]
+    - [12.0, 16.0]
+    - [16.0, 20.0]
+    - [20.0, 24.0]
+    - [24.0, 30.0]
+  csp_components_per_class: 4
+  receiver_hidden_units: 64
+  receiver_dropout: 0.25
+  learning_rate: 0.001
+  maximum_epochs: 300
+  early_stopping_patience: 30
+
+semantic:
+  residual_hidden_units: 96
+  residual_scale: 0.35
+  label_smoothing: 0.02
+  warmup_maximum_epochs: 160
+  warmup_patience: 30
+  warmup_learning_rate: 0.0005
+  joint_maximum_epochs: 220
+  joint_patience: 40
+  joint_residual_learning_rate: 0.0002
+  joint_receiver_learning_rate: 0.00005
+  severe_views: 2
+  mixed_views: 1
+  clean_loss_weight: 0.75
+  severe_loss_weight: 0.75
+  mixed_loss_weight: 0.50
+  latent_anchor_weight: 0.35
+  logit_distillation_weight: 0.50
+  distillation_temperature: 2.0
+  validation_realizations: 3
+  clean_guard: 0.01
+  receiver_only_budget: 32
+  semantic_initialization_seed_base: 810000000
+  receiver_initialization_seed_base: 830000000
+
+reconstruction:
+  bandpass: [8.0, 30.0]
+  learning_rate: 0.001
+  maximum_epochs: 300
+  early_stopping_patience: 30
+
+publication:
+  semantic_protocol_hash: 112a9c88098ca8ff07404041f7cff2b16ab86f7891b19db740137a9a38a93d2d
+  semantic_config_hash: 3df3c1d7a4b62dbab027cd835a5100731fba10d27562823ebe6e97599cda99d7
+  reconstruction_protocol_hash: 8bb56c2f22f92874973aa9595261670ec4343d88debca3485ffb8310c4c7e9f8
+  reconstruction_config_hash: 6a2152170cfb6cc9947288e5610f41a581dd2590624bb5a0b04929fef2b77a5c
