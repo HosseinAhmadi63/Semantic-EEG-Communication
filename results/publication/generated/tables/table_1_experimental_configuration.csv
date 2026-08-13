@@ -1,0 +1,13 @@
+parameter,value
+Dataset,BNCI2014-001 (BCI Competition IV Dataset 2a)
+Subjects,9
+Sessions,2 per subject; both source-target directions
+Classes,4 motor imagery classes
+Retained trials,"4,696 of 5,184"
+EEG preparation,8-30 Hz; 160 Hz; 0.5-4.0 s; 22 x 560
+Transmission budgets,"K = 16, 32, and 64 real values"
+Test conditions,-10 to 20 dB in 5 dB steps and noise-free
+Repetition seeds,"2026, 2027, and 2028"
+Channel realizations,20 paired realizations per test condition
+Classification outcome,Balanced accuracy
+Independent statistical unit,Subject

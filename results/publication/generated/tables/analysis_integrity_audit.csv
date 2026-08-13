@@ -1,0 +1,13 @@
+check_name,check_pass,checked_at_utc
+Frozen semantic run completed,True,2026-08-13T14:22:10.126862+00:00
+Frozen semantic integrity checks passed,True,2026-08-13T14:22:10.126897+00:00
+Frozen semantic log contains no warnings or errors,True,2026-08-13T14:22:10.126900+00:00
+Subject-summary row counts are complete,True,2026-08-13T14:22:10.126903+00:00
+Artifact rejection summaries match,True,2026-08-13T14:22:10.126905+00:00
+Cross-session split counts match,True,2026-08-13T14:22:10.126907+00:00
+Primary detailed keys match,True,2026-08-13T14:22:10.126909+00:00
+Primary channel seeds and test sizes are paired,True,2026-08-13T14:22:10.126922+00:00
+Receiver-only keys match the K=32 baseline,True,2026-08-13T14:22:10.126925+00:00
+Receiver-only channel seeds and test sizes are paired,True,2026-08-13T14:22:10.126927+00:00
+All group summaries contain nine subjects,True,2026-08-13T14:22:10.126929+00:00
+Primary family contains 24 comparisons,True,2026-08-13T14:22:10.126931+00:00
